@@ -21,7 +21,7 @@ services:
             - pgsql
             - redis
     pgsql:
-      image: postgres:13
+      image: 'postgres:13'
       ports:
           - '${FORWARD_DB_PORT:-5432}:5432'
       environment:
@@ -33,6 +33,8 @@ services:
           - 'sailpostgresql:/var/lib/postgresql/data'
       networks:
           - sail
+      healthcheck:
+        test: ["CMD", "pg_isready", "-q", "-d", "${DB_DATABASE}", "-U", "${DB_USERNAME}"]
     redis:
         image: 'redis:alpine'
         ports:
@@ -54,8 +56,6 @@ networks:
     sail:
         driver: bridge
 volumes:
-    # sailmysql:
-    #     driver: local
     sailpostgresql:
         driver: local
     sailredis:
