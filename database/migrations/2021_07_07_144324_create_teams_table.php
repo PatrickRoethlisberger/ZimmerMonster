@@ -15,7 +15,7 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('team_type')->constrained();
+            $table->enum('type', ['admin', 'tourist_association', 'hotel']);
             $table->foreignId('parent_team')->nullable()->constrained('teams');
             $table->timestamps();
         });
