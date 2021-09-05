@@ -23,10 +23,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected $guarded = [
+        'id'
     ];
 
     /**
@@ -58,6 +56,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Get the user's display name
+     * If available return the company name otherwise first and lastname
+     * @return string
+     */
+    public function getNameAttribute()
+    {
+        return $this->team ? "{$this->team->name}" : "{$this->firstname} {$this->lastname}";
+    }
 
     public function city()
     {
