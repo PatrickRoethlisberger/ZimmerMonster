@@ -58,4 +58,26 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function city()
+    {
+        return $this->hasOne(City::class);
+    }
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function managesHotel()
+    {
+        return $this->hasOneThrough(Hotel::class, Team::class);
+    }
+
+
 }
