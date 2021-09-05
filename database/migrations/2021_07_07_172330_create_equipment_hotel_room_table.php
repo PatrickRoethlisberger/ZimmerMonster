@@ -15,9 +15,8 @@ class CreateEquipmentHotelRoomTable extends Migration
     {
         Schema::create('equipment_hotel_room', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hotel_id')->nullable()->constrained();
-            $table->foreignId('room_id')->nullable()->constrained();
-            $table->morphs('equipment');
+            $table->foreignId('equipment_id')->constrained('equipments');
+            $table->morphs('equipable');
             $table->string('description')->nullable();
             $table->timestamps();
         });
