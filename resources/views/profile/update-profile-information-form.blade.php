@@ -52,11 +52,25 @@
             </div>
         @endif
 
-        <!-- Name -->
+        <!-- Firstname -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
-            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
-            <x-jet-input-error for="name" class="mt-2" />
+            <x-jet-label for="firstname" value="Vorname" />
+            <x-jet-input id="firstname" type="text" class="mt-1 block w-full" wire:model.defer="state.firstname" autocomplete="given-name" />
+            <x-jet-input-error for="firstname" class="mt-2" />
+        </div>
+
+        <!-- Lastname -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="lastname" value="Nachname" />
+            <x-jet-input id="lastname" type="text" class="mt-1 block w-full" wire:model.defer="state.lastname" autocomplete="family-name" />
+            <x-jet-input-error for="lastname" class="mt-2" />
+        </div>
+
+        <!-- Street -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="street" value="Strasse" />
+            <x-jet-input id="street" type="text" class="mt-1 block w-full" wire:model.defer="state.street" autocomplete="address-line1" />
+            <x-jet-input-error for="street" class="mt-2" />
         </div>
 
         <!-- Email -->
