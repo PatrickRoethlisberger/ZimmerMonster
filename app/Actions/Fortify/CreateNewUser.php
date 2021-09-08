@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\City;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -24,7 +25,7 @@ class CreateNewUser implements CreatesNewUsers
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
             'street' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'exists:cities,id', 'integer'],
+            'city_id' => ['required', 'exists:cities,id', 'integer'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
@@ -34,7 +35,7 @@ class CreateNewUser implements CreatesNewUsers
             'firstname' => $input['firstname'],
             'lastname' => $input['lastname'],
             'street' => $input['street'],
-            'city_id' => $input['city'],
+            'city_id' => $input['city_id'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);

@@ -9,24 +9,23 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div>
+            <div class="mt-4">
                 <x-jet-label for="firstname" value="Vorname" />
                 <x-jet-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="given-name" />
             </div>
 
-            <div>
+            <div class="mt-4">
                 <x-jet-label for="lastname" value="Nachname" />
                 <x-jet-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="family-name" />
             </div>
 
-            <div>
+            <div class="mt-4">
                 <x-jet-label for="street" value="Strasse" />
                 <x-jet-input id="street" class="block mt-1 w-full" type="text" name="street" :value="old('street')" required autofocus autocomplete="address-line1" />
             </div>
 
-            <div>
-                <x-jet-label for="city" value="Stadt ID (WIP!)" />
-                <x-jet-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required autofocus autocomplete="postal-code" />
+            <div class="mt-4">
+                <livewire:city-selector />
             </div>
 
             <div class="mt-4">
