@@ -49,9 +49,9 @@ class Team extends Model
 
     // functions for touristAssociations
 
-    public function touristAssociation()
+    public function touristAssociations()
     {
-        return $this->hasOne(TouristAssociation::class);
+        return $this->hasManyOfDescendantsAndSelf(TouristAssociation::class);
     }
 
     // functions for touristAssociations or admin teams
