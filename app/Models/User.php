@@ -59,12 +59,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the user's display name
-     * If available return the company name otherwise first and lastname
      * @return string
      */
     public function getNameAttribute()
     {
-        return $this->team ? "{$this->team->name}" : "{$this->firstname} {$this->lastname}";
+        return "{$this->firstname} {$this->lastname}";
     }
 
     public function city()
@@ -81,11 +80,5 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Reservation::class);
     }
-
-    public function managesHotel()
-    {
-        return $this->hasOneThrough(Hotel::class, Team::class);
-    }
-
 
 }
