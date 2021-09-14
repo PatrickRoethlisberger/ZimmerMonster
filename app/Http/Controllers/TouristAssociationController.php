@@ -39,7 +39,7 @@ class TouristAssociationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'nullable|string|max:512',
+            'name' => ['nullable','string','max:255'],
             'street' => ['required', 'string', 'max:255'],
             'city_id' => ['required', 'exists:cities,id', 'integer'],
             'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
@@ -92,11 +92,10 @@ class TouristAssociationController extends Controller
      */
     public function update(Request $request, TouristAssociation $touristAssociation)
     {
-        // dd(Auth::user()->team->touristAssociations->pluck('id')->toArray());
         if (in_array($touristAssociation->id, Auth::user()->team->touristAssociations->pluck('id')->toArray())) {
 
             $request->validate([
-                'name' => 'nullable|string|max:512',
+                'name' => ['nullable','string','max:255'],
                 'street' => ['required', 'string', 'max:255'],
                 'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
             ]);
@@ -113,8 +112,8 @@ class TouristAssociationController extends Controller
             return redirect(route('touristAssociation.index'));
         }
         else {
-            return redirect(route('occupations.edit', $touristAssociation))
-            ->withErrors('Sie sind nicht der Mieter dieses Standortes.');
+            return redirect(route('touristAssociation.edit', $touristAssociation))
+            ->withErrors('Sie können diesen Verkehrsverein nicht bearbeiten.');
         }
     }
 
