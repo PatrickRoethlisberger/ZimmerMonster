@@ -16,12 +16,12 @@
 
             <div class="mt-4">
                 <x-jet-label for="lastname" value="Nachname" />
-                <x-jet-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="family-name" />
+                <x-jet-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autocomplete="family-name" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="street" value="Strasse" />
-                <x-jet-input id="street" class="block mt-1 w-full" type="text" name="street" :value="old('street')" required autofocus autocomplete="address-line1" />
+                <x-jet-input id="street" class="block mt-1 w-full" type="text" name="street" :value="old('street')" required autocomplete="address-line1" />
             </div>
 
             <div class="mt-4">
