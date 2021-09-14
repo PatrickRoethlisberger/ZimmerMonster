@@ -42,7 +42,7 @@ class TouristAssociationController extends Controller
             'name' => 'nullable|string|max:512',
             'street' => ['required', 'string', 'max:255'],
             'city_id' => ['required', 'exists:cities,id', 'integer'],
-            'phone' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
         ]);
 
         $newTeam = Auth::user()->team->create([
@@ -98,7 +98,7 @@ class TouristAssociationController extends Controller
             $request->validate([
                 'name' => 'nullable|string|max:512',
                 'street' => ['required', 'string', 'max:255'],
-                'phone' => ['required', 'string', 'max:255'],
+                'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
             ]);
 
 
