@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\TouristAssociationController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/debug', function () {
-        dd(auth()->user()->team->managesHotels->first()->slug);
+        dd(auth()->user()->team->hotels->first()->slug);
 
     });
 
@@ -34,6 +35,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         // TouristAssoication Management
         Route::middleware(['isInTeam:admin'])->group(function () {
             Route::resource('touristAssociation', TouristAssociationController::class);
+        });
+
+        // Hotel Management
+        Route::middleware(['isInTeam:admin,tourist_association'])->group(function () {
+            Route::resource('hotel', HotelController::class);
         });
 
 
