@@ -34,6 +34,11 @@ class Hotel extends Model
         return $this->belongsTo(Team::class);
     }
 
+    public function touristAssociation()
+    {
+        return $this->belongsTo(TouristAssociation::class);
+    }
+
     public function city()
     {
         return $this->belongsTo(City::class);
