@@ -2456,6 +2456,9 @@ input:focus, input:active, input:hover, select:focus, select:active, select:hove
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
+.fill-current {
+	fill: currentColor;
+}
 .object-cover {
 	-o-object-fit: cover;
 	   object-fit: cover;
@@ -2692,6 +2695,10 @@ input:focus, input:active, input:hover, select:focus, select:active, select:hove
 .text-green-500 {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
+}
+.text-yellow-500 {
+	--tw-text-opacity: 1;
+	color: rgba(245, 158, 11, var(--tw-text-opacity));
 }
 .text-gray-200 {
 	--tw-text-opacity: 1;
