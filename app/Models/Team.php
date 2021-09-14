@@ -56,7 +56,7 @@ class Team extends Model
 
     // functions for touristAssociations or admin teams
 
-    public function managesHotels()
+    public function hotels()
     {
         return $this->hasManyOfDescendantsAndSelf(Hotel::class);
     }
