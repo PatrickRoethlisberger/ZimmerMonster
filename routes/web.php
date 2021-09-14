@@ -35,17 +35,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
         // Equipment Management
         Route::middleware(['isInTeam:admin'])->group(function () {
-            Route::resource('equipment', EquipmentController::class);
+            Route::resource('equipment', EquipmentController::class)->without('show', 'destroy');
         });
 
         // TouristAssoication Management
         Route::middleware(['isInTeam:admin'])->group(function () {
-            Route::resource('touristAssociation', TouristAssociationController::class);
+            Route::resource('touristAssociation', TouristAssociationController::class)->without('show', 'destroy');
         });
 
         // Hotel Management
         Route::middleware(['isInTeam:admin,tourist_association'])->group(function () {
-            Route::resource('hotel', HotelController::class);
+            Route::resource('hotel', HotelController::class)->without('show', 'destroy');
         });
 
 
