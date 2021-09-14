@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\TouristAssociationController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     });
 
     Route::prefix('manage')->group(function () {
+
+        // Equipment Management
+        Route::middleware(['isInTeam:admin'])->group(function () {
+            Route::resource('equipment', EquipmentController::class);
+        });
 
         // TouristAssoication Management
         Route::middleware(['isInTeam:admin'])->group(function () {
