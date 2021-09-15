@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BedtypeController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\TouristAssociationController;
@@ -36,6 +37,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         // Equipment Management
         Route::middleware(['isInTeam:admin'])->group(function () {
             Route::resource('equipment', EquipmentController::class)->except('show', 'destroy');
+        });
+
+        // Bedtype Management
+        Route::middleware(['isInTeam:admin'])->group(function () {
+            Route::resource('bedtype', BedtypeController::class)->except('show', 'destroy');
         });
 
         // TouristAssoication Management
