@@ -3,7 +3,9 @@
 use App\Http\Controllers\BedtypeController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TouristAssociationController;
+use App\Models\Room;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +34,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     });
 
-    Route::prefix('manage')->group(function () {
+    Route::prefix('manage')->middleware(['isInTeam'])->group(function () {
+
+        Route::get('/', function () {
+            return view('manage.index');
+        })->name('manage.index');
 
         // Equipment Management
         Route::middleware(['isInTeam:admin'])->group(function () {
@@ -50,9 +56,20 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         });
 
         // Hotel Management
-        Route::middleware(['isInTeam:admin,tourist_association'])->group(function () {
+        Route::middleware(['isInTeam:admin,tourist_association,hotel'])->group(function () {
             Route::resource('hotel', HotelController::class)->except('show', 'destroy');
+
+            Route::get('hotel/{hotel}/room/', [RoomController::class, 'index'])->name('room.index');
+            Route::get('hotel/{hotel}/room/create', [RoomController::class, 'create'])->name('room.create');
+            Route::post('hotel/{hotel}/room/store', [RoomController::class, 'store'])->name('room.store');
+            Route::get('hotel/{hotel}/room/{room}/edit', [RoomController::class, 'edit'])->name('room.edit');
+            Route::put('hotel/{hotel}/room/{room}/update', [RoomController::class, 'update'])->name('room.update');
         });
+
+        // // Room Management
+        // Route::middleware(['isInTeam:admin,tourist_association,hotel'])->group(function () {
+        //     Route::resource('room', RoomController::class)->except('index', 'show', 'destroy');
+        // });
 
 
     });
