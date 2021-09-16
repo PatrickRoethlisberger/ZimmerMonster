@@ -20,9 +20,14 @@ class Room extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
+                'source' => ['hotel.name', 'name']
             ]
         ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
     protected $guarded = [
@@ -41,7 +46,7 @@ class Room extends Model
 
     public function beds()
     {
-        return $this->belongsToMany(Bed::class)->withPivot('count');
+        return $this->belongsToMany(Bedtype::class, 'room_bedtype')->withPivot('count');
     }
 
     public function reservations()
@@ -49,7 +54,7 @@ class Room extends Model
         return $this->hasMany(Reservation::class);
     }
 
-    public function equipment()
+    public function equipments()
     {
         return $this->morphToMany(Equipment::class, 'equipables', 'equipment_hotel_room')->withPivot('description');
     }

@@ -25,6 +25,11 @@ class TouristAssociation extends Model
         ];
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     protected $guarded = [
         'id'
     ];

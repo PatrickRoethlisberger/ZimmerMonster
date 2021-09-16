@@ -25,6 +25,11 @@ class Hotel extends Model
         ];
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     protected $guarded = [
         'id'
     ];
