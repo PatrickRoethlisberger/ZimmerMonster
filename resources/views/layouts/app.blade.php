@@ -44,7 +44,7 @@
         @stack('modals')
 
         @livewireScripts
-        @laravelViewsScripts
+        @laravelViewsScripts(laravel-views)
         @stack("scripts")
     </body>
 </html>
