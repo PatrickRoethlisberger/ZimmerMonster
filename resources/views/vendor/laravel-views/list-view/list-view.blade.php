@@ -6,7 +6,7 @@
 
   <div>
     @foreach ($items as $item)
-      <div class="flex items-center border-b border-gray-200 ">
+      <div class="flex items-center ">
         @if ($this->hasBulkActions)
           <div class="h-full flex items-center pl-3 md:pl-4">
             <x-lv-checkbox wire:model="selected" value="{{ $item->getKey() }}" />
