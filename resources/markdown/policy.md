@@ -1,3 +1,3 @@
-# Privacy Policy
+# Datenschutzerklärung
 
-Edit this file to define the privacy policy for your application.
+Da es sich um eine Case Study handlet gibt es für dieses Projekt keine wirkliche Datenschutzerklärung.

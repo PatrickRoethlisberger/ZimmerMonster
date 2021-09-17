@@ -1,3 +1,3 @@
-# Terms of Service
+# AGBs
 
-Edit this file to define the terms of service for your application.
+Da es sich um eine Case Study handlet gibt es für dieses Projekt keine wirklichen AGBs.
