@@ -34,11 +34,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     });
 
-    Route::prefix('manage')->middleware(['isInTeam'])->group(function () {
+    Route::prefix('manage')->name('manage.')->middleware(['isInTeam'])->group(function () {
 
         Route::get('/', function () {
             return view('manage.index');
-        })->name('manage.index');
+        })->name('index');
 
         // Equipment Management
         Route::middleware(['isInTeam:admin'])->group(function () {
