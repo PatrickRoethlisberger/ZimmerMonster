@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         @livewireStyles
+        @laravelViewsStyles
         @stack("styles")
 
         <!-- Scripts -->
@@ -43,6 +44,7 @@
         @stack('modals')
 
         @livewireScripts
+        @laravelViewsScripts
         @stack("scripts")
     </body>
 </html>
