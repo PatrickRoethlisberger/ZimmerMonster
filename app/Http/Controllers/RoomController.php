@@ -27,7 +27,7 @@ class RoomController extends Controller
      */
     public function create(Hotel $hotel)
     {
-        return view('manage.room.create', ['hotel' => $hotel]);
+        //
     }
 
     /**
@@ -60,10 +60,7 @@ class RoomController extends Controller
      */
     public function edit(Room $room, Hotel $hotel)
     {
-        return view('manage.room.edit', [
-            'room' => $room,
-            'hotel' => $hotel
-        ]);
+        //
     }
 
     /**

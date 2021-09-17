@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hotel;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
-class ManageManageRoomController extends Controller
+class ManageRoomController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,9 +23,9 @@ class ManageManageRoomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Hotel $hotel)
     {
-        //
+        return view('manage.room.create', ['hotel' => $hotel]);
     }
 
     /**
@@ -55,9 +56,12 @@ class ManageManageRoomController extends Controller
      * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $room)
+    public function edit(Hotel $hotel, Room $room)
     {
-        //
+        return view('manage.room.edit', [
+            'room' => $room,
+            'hotel' => $hotel
+        ]);
     }
 
     /**

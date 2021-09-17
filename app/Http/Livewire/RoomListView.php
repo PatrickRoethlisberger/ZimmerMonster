@@ -35,6 +35,7 @@ class RoomListView extends ListView
         return [
             'name' => $model->name,
             'price' => $model->price,
+            'model' => $model,
         ];
     }
 
@@ -42,7 +43,7 @@ class RoomListView extends ListView
 {
     return [
         // Will redirect to route('user', $user->id)
-        new RedirectAction('room.show', 'Weitere Infos', 'eye'),
+        // new RedirectAction('manage.room.edit', 'Weitere Infos', 'eye'),
     ];
 }
 }
