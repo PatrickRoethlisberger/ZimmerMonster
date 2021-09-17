@@ -3,6 +3,7 @@
 use App\Http\Controllers\BedtypeController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\ManageRoomController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TouristAssociationController;
 use App\Models\Room;
@@ -22,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('room', RoomController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -59,16 +63,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::middleware(['isInTeam:admin,tourist_association,hotel'])->group(function () {
             Route::resource('hotel', HotelController::class)->except('show', 'destroy');
 
-            Route::get('hotel/{hotel}/room/', [RoomController::class, 'index'])->name('room.index');
-            Route::get('hotel/{hotel}/room/create', [RoomController::class, 'create'])->name('room.create');
-            Route::post('hotel/{hotel}/room/store', [RoomController::class, 'store'])->name('room.store');
-            Route::get('hotel/{hotel}/room/{room}/edit', [RoomController::class, 'edit'])->name('room.edit');
-            Route::put('hotel/{hotel}/room/{room}/update', [RoomController::class, 'update'])->name('room.update');
+            Route::get('hotel/{hotel}/room/', [ManageRoomController::class, 'index'])->name('room.index');
+            Route::get('hotel/{hotel}/room/create', [ManageRoomController::class, 'create'])->name('room.create');
+            Route::post('hotel/{hotel}/room/store', [ManageRoomController::class, 'store'])->name('room.store');
+            Route::get('hotel/{hotel}/room/{room}/edit', [ManageRoomController::class, 'edit'])->name('room.edit');
+            Route::put('hotel/{hotel}/room/{room}/update', [ManageRoomController::class, 'update'])->name('room.update');
         });
 
         // // Room Management
         // Route::middleware(['isInTeam:admin,tourist_association,hotel'])->group(function () {
-        //     Route::resource('room', RoomController::class)->except('index', 'show', 'destroy');
+        //     Route::resource('room', ManageRoomController::class)->except('index', 'show', 'destroy');
         // });
 
 
