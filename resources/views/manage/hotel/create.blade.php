@@ -10,7 +10,7 @@
 
             <x-jet-validation-errors class="mb-4" />
 
-            <form method="POST" action="{{ route('hotel.store') }}">
+            <form method="POST" action="{{ route('manage.hotel.store') }}">
                 @csrf
                 <div class="mt-4">
                     <x-jet-label for="name" value="Name" />

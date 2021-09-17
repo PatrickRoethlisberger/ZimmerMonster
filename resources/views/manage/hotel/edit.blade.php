@@ -10,7 +10,7 @@
 
             <x-jet-validation-errors class="mb-4" />
 
-            <form method="POST" action="{{ route('hotel.update', [$hotel]) }}">
+            <form method="POST" action="{{ route('manage.hotel.update', [$hotel]) }}">
                 @csrf
                 @method('PUT')
 

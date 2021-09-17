@@ -47,7 +47,7 @@ class BedtypeController extends Controller
             'sleepingspots' => $request->sleepingspots,
         ]);
 
-        return redirect(route('bedtype.index'));
+        return redirect(route('manage.bedtype.index'));
 
     }
 
@@ -94,7 +94,7 @@ class BedtypeController extends Controller
             'sleepingspots' => $request->sleepingspots,
         ]);
 
-        return redirect(route('bedtype.index'));
+        return redirect(route('manage.bedtype.index'));
     }
 
     /**

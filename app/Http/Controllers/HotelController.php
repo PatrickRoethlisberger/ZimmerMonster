@@ -86,7 +86,7 @@ class HotelController extends Controller
             'team_id' => $newTeam,
         ]);
 
-        return redirect(route('hotel.index'));
+        return redirect(route('manage.hotel.index'));
     }
 
     /**
@@ -155,10 +155,10 @@ class HotelController extends Controller
                 'tourist_association_id' => $touristAssociation_id,
             ]);
 
-            return redirect(route('hotel.index'));
+            return redirect(route('manage.hotel.index'));
         }
         else {
-            return redirect(route('hotel.edit', $hotel))
+            return redirect(route('manage.hotel.edit', $hotel))
             ->withErrors('Sie können dieses Hotel nicht bearbeiten.');
         }
 

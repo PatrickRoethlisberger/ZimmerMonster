@@ -10,7 +10,7 @@
 
             <x-jet-validation-errors class="mb-4" />
 
-            <form method="POST" action="{{ route('bedtype.update', [$bedtype]) }}">
+            <form method="POST" action="{{ route('manage.bedtype.update', [$bedtype]) }}">
                 @csrf
                 @method('PUT')
                 <div class="mt-4">

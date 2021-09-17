@@ -15,6 +15,11 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    @teammember
+                        <x-jet-nav-link href="{{ route('manage.index') }}" :active="request()->routeIs('manage.*')">
+                            {{ __('Verwaltung') }}
+                        </x-jet-nav-link>
+                    @endteammember
                 </div>
             </div>
 
@@ -123,10 +128,10 @@
                         </x-jet-dropdown>
                     </div>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">{{ __('Log in')}}</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">{{ __('Register')}}</a>
                     @endif
 
                 @endguest

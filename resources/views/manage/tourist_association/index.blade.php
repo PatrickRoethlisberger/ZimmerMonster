@@ -9,7 +9,7 @@
             <h1 class="font-semibold text-2xl text-gray-800 leading-tight">
                 Verkehrsvereine
             </h1>
-            <x-link-button href="{{ route('touristAssociation.create') }}">
+            <x-link-button href="{{ route('manage.touristAssociation.create') }}">
                 Verkehrsverein erstellen
             </x-link-button>
         </div>
@@ -25,7 +25,7 @@
                         <p>{{ $touristAssociation->city->PLZ }} {{ $touristAssociation->city->city }}</p>
                     </x-slot>
                     <x-slot name="buttons">
-                        <x-link-button :href="route('touristAssociation.edit', [$touristAssociation])">
+                        <x-link-button :href="route('manage.touristAssociation.edit', [$touristAssociation])">
                             Bearbeiten
                         </x-link-button>
                     </x-slot>

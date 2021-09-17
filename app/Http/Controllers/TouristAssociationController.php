@@ -58,7 +58,7 @@ class TouristAssociationController extends Controller
             'team_id' => $newTeam,
         ]);
 
-        return redirect(route('touristAssociation.index'));
+        return redirect(route('manage.touristAssociation.index'));
     }
 
     /**
@@ -109,10 +109,10 @@ class TouristAssociationController extends Controller
                 'phone' => $request->phone
             ]);
 
-            return redirect(route('touristAssociation.index'));
+            return redirect(route('manage.touristAssociation.index'));
         }
         else {
-            return redirect(route('touristAssociation.edit', $touristAssociation))
+            return redirect(route('manage.touristAssociation.edit', $touristAssociation))
             ->withErrors('Sie können diesen Verkehrsverein nicht bearbeiten.');
         }
     }

@@ -71,7 +71,7 @@ class CreateRoom extends Component
 
         $this->model->equipments()->sync($validated_data['equipments']);
 
-        return redirect(route('room.index', ['hotel' => Hotel::find($this->model->hotel_id)]));
+        return redirect(route('manage.room.index', ['hotel' => Hotel::find($this->model->hotel_id)]));
     }
 
     // OPTIONAL method used for the "Save and stay" button, this method already exists in the TallForm trait
@@ -102,7 +102,7 @@ class CreateRoom extends Component
 
         $this->model->equipments()->sync($validated_data['equipments']);
 
-        return redirect(route('room.index', ['hotel' => Hotel::find($this->model->hotel_id)]));
+        return redirect(route('manage.room.index', ['hotel' => Hotel::find($this->model->hotel_id)]));
     }
 
     public function fields()

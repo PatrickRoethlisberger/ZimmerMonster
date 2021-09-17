@@ -9,7 +9,7 @@
             <h1 class="font-semibold text-2xl text-gray-800 leading-tight">
                 Einrichtungen
             </h1>
-            <x-link-button href="{{ route('equipment.create') }}">
+            <x-link-button href="{{ route('manage.equipment.create') }}">
                 Einrichtung erstellen
             </x-link-button>
         </div>
@@ -27,7 +27,7 @@
                 <tr class="border-t border-gray-100">
                     <td class="py-2">{{ $equipment->name }}</td>
                     <td class="flex items-center justify-end py-2">
-                        <x-link-button :href="route('equipment.edit', [$equipment])">
+                        <x-link-button :href="route('manage.equipment.edit', [$equipment])">
                             Bearbeiten
                         </x-link-button>
                     </td>

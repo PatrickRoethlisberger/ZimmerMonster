@@ -8,7 +8,7 @@
             <h1 class="font-semibold text-2xl text-gray-800 leading-tight">
                 Hotels
             </h1>
-            <x-link-button href="{{ route('hotel.create') }}">
+            <x-link-button href="{{ route('manage.hotel.create') }}">
                 Hotel erstellen
             </x-link-button>
         </div>
@@ -28,7 +28,7 @@
 
                     </x-slot>
                     <x-slot name="buttons">
-                        <x-link-button :href="route('hotel.edit', [$hotel])">
+                        <x-link-button :href="route('manage.hotel.edit', [$hotel])">
                             Bearbeiten
                         </x-link-button>
                     </x-slot>

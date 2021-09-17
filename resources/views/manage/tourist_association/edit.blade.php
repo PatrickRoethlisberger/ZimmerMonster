@@ -10,7 +10,7 @@
 
             <x-jet-validation-errors class="mb-4" />
 
-            <form method="POST" action="{{ route('touristAssociation.update', [$touristAssociation]) }}">
+            <form method="POST" action="{{ route('manage.touristAssociation.update', [$touristAssociation]) }}">
                 @csrf
                 @method('PUT')
                 <div class="mt-4">

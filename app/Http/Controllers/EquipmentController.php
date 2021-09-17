@@ -45,7 +45,7 @@ class EquipmentController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect(route('equipment.index'));
+        return redirect(route('manage.equipment.index'));
 
     }
 
@@ -90,7 +90,7 @@ class EquipmentController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect(route('equipment.index'));
+        return redirect(route('manage.equipment.index'));
     }
 
     /**

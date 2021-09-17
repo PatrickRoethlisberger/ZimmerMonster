@@ -9,7 +9,7 @@
             <h1 class="font-semibold text-2xl text-gray-800 leading-tight">
                 Schlafplätze
             </h1>
-            <x-link-button href="{{ route('bedtype.create') }}">
+            <x-link-button href="{{ route('manage.bedtype.create') }}">
                 Schlafplatz erstellen
             </x-link-button>
         </div>
@@ -29,7 +29,7 @@
                     <td class="py-2">{{ $bedtype->name }}</td>
                     <td class="py-2">{{ $bedtype->sleepingspots }}</td>
                     <td class="flex items-center justify-end py-2">
-                        <x-link-button :href="route('bedtype.edit', [$bedtype])">
+                        <x-link-button :href="route('manage.bedtype.edit', [$bedtype])">
                             Bearbeiten
                         </x-link-button>
                     </td>

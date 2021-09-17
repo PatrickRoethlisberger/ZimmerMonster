@@ -10,7 +10,7 @@
 
             <x-jet-validation-errors class="mb-4" />
 
-            <form method="POST" action="{{ route('equipment.update', [$equipment]) }}">
+            <form method="POST" action="{{ route('manage.equipment.update', [$equipment]) }}">
                 @csrf
                 @method('PUT')
                 <div class="mt-4">
