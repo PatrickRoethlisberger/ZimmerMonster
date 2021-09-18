@@ -1,11 +1,9 @@
 
 <x-app-layout>
-    <x-slot name="header">
-        </>
-    </x-slot>
-
     <x-app-body>
-        <livewire:room-list-view />
+        @foreach ($rooms as $room)
+            {{ $room->name }}
+        @endforeach
 
     </x-app-body>
 </x-app-layout>

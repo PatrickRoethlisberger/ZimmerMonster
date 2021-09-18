@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use App\Models\Room;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,9 @@ class RoomController extends Controller
      */
     public function index()
     {
-        return view('room.index');
+        return view('room.index', [
+            'rooms' => Room::filter(request()->all())->paginate(16)
+        ]);
 
     }
 
