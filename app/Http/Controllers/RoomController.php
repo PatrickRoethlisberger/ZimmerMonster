@@ -18,7 +18,7 @@ class RoomController extends Controller
     public function index()
     {
         return view('room.index', [
-            'rooms' => Room::filter(request()->all())->paginate(16)
+            'rooms' => Room::filter(request()->all())->paginateFilter(16)
         ]);
 
     }
