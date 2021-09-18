@@ -21,7 +21,7 @@ class RoomListView extends ListView
      */
     public function repository(): Builder
     {
-        return Room::query();
+        return Room::query()->with(['equipments', 'hotel']);
     }
 
 

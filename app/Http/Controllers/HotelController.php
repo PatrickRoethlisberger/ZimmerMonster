@@ -17,7 +17,7 @@ class HotelController extends Controller
     public function index()
     {
         return view('manage.hotel.index', [
-            'hotels' => Auth::user()->team->hotels()->orderBy('name')->paginate(8)
+            'hotels' => Auth::user()->team->hotels()->with(['city','touristAssociation'])->orderBy('name')->paginate(8)
         ]);
     }
 
