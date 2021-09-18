@@ -43,11 +43,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Blade::if('touristAssociationMember', function () {
-            return auth()->check() && auth()->user()->team && auth()->user()->team->type == 'tourist_association';
+            return auth()->check() && auth()->user()->team && ( auth()->user()->team->type == 'tourist_association' || auth()->user()->team->type == 'admin');
         });
 
         Blade::if('hotelMember', function () {
-            return auth()->check() && auth()->user()->team && auth()->user()->team->type == 'hotel';
+            return auth()->check() && auth()->user()->team && ( auth()->user()->team->type == 'hotel' || auth()->user()->team->type == 'tourist_association' || auth()->user()->team->type == 'admin');
         });
     }
 }

@@ -1,15 +1,15 @@
 
 <x-app-layout>
     <x-slot name="header">
-        </>
+        <x-manage-navigation-menu />
     </x-slot>
 
     <x-app-body>
-        <div class="flex items-center justify-between mt-4">
-            <h1 class="font-semibold text-2xl text-gray-800 leading-tight">
+        <div class="flex flex-col sm:flex-row items-left justify-between">
+            <h1 class="font-semibold text-2xl text-gray-800 leading-tight mt-4">
                 Einrichtungen
             </h1>
-            <x-link-button href="{{ route('manage.equipment.create') }}">
+            <x-link-button href="{{ route('manage.equipment.create')}}" class="mt-4">
                 Einrichtung erstellen
             </x-link-button>
         </div>

@@ -55,7 +55,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         });
 
         // TouristAssoication Management
-        Route::middleware(['isInTeam:admin'])->group(function () {
+        Route::middleware(['isInTeam:admin,tourist_association'])->group(function () {
             Route::resource('touristAssociation', TouristAssociationController::class)->except('show', 'destroy');
         });
 

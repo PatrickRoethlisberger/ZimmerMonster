@@ -16,7 +16,7 @@ class TouristAssociationController extends Controller
     public function index()
     {
         return view('manage.tourist_association.index', [
-            'touristAssociations' => TouristAssociation::orderBy('name', 'ASC')->paginate(8)
+            'touristAssociations' => Auth::user()->team->touristassociations()->orderBy('name')->paginate(8)
         ]);
     }
 

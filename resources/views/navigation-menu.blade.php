@@ -157,6 +157,12 @@
             </x-jet-responsive-nav-link>
         </div>
 
+        @teammember
+            <x-jet-responsive-nav-link href="{{ route('manage.index') }}" :active="request()->routeIs('manage.*')">
+                {{ __('Verwaltung') }}
+            </x-jet-responsive-nav-link>
+        @endteammember
+
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">

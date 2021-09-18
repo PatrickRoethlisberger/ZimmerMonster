@@ -21,7 +21,7 @@ class IsInTeam
 
         // If teamtypes is empty fill with all available teamtypes
         if(empty($teamtypes)) {
-            $teamtypes = ['admin', 'touristassociation', 'hotel'];
+            $teamtypes = ['admin', 'tourist_association', 'hotel'];
         }
 
         if ( ! $request->user() || empty($request->user()->team) || ! in_array($request->user()->team->type, $teamtypes)) {

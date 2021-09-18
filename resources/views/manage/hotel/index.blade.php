@@ -1,16 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
-        </>
+        <x-manage-navigation-menu />
     </x-slot>
 
     <x-app-body>
-        <div class="flex items-center justify-between mt-4">
-            <h1 class="font-semibold text-2xl text-gray-800 leading-tight">
+
+        <div class="flex flex-col sm:flex-row items-left justify-between">
+            <h1 class="font-semibold text-2xl text-gray-800 leading-tight mt-4">
                 Hotels
             </h1>
-            <x-link-button href="{{ route('manage.hotel.create') }}">
-                Hotel erstellen
-            </x-link-button>
+            @touristAssociationMember
+                <x-link-button href="{{ route('manage.hotel.create') }}" class="mt-4">
+                    Hotel erstellen
+                </x-link-button>
+            @endtouristAssociationMember
         </div>
 
         @if ($hotels->count())
