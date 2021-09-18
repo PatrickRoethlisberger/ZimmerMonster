@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Filters\RoomEquipmentFilter;
 use App\Models\Room;
 use Illuminate\Database\Eloquent\Builder;
-use LaravelViews\Actions\RedirectAction;
 use LaravelViews\Views\ListView;
 
 class RoomListView extends ListView
@@ -39,11 +39,10 @@ class RoomListView extends ListView
         ];
     }
 
-    protected function actionsByRow()
-{
-    return [
-        // Will redirect to route('user', $user->id)
-        // new RedirectAction('manage.room.edit', 'Weitere Infos', 'eye'),
-    ];
-}
+    protected function filters()
+    {
+        return [
+            new RoomEquipmentFilter,
+        ];
+    }
 }

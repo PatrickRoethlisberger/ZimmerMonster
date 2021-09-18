@@ -29,10 +29,5 @@ props:
         @endforeach
       @endif
     </select>
-
-    {{-- Down icon --}}
-    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-      <i data-feather="chevron-down" class="w-4 h-4"></i>
-    </div>
   </div>
 </div>
