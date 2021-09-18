@@ -8,6 +8,7 @@ use LaravelViews\Filters\Filter;
 
 class RoomEquipmentFilter extends Filter
 {
+    public $title =  "Ausrüstungs Filter";
     /**
      * Modify the current query when the filter is used
      *
