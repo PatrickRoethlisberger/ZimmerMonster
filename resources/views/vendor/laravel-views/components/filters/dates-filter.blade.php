@@ -1,17 +1,10 @@
-{{-- table-view.date.blade
+{{-- components.filters.date.blade
 
-Renders a datepicker input
+Renders the datepicker for the date filter
 To customize it you should shange the UI component used, YOU SHOULD NOT CUSTOMIZE ANYHING HERE
 UI components used:
-  - form/input
-props:
- - $label
- - $name
- - $placeholder
- - $value
- - $model
- - $id
---}}
+  - form/datepicker --}}
+
 
 <x-lv-input
   :value="$value"

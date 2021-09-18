@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Filters\RoomEquipmentFilter;
+use App\Filters\RoomAvailableFilter;
 use App\Models\Room;
 use Illuminate\Database\Eloquent\Builder;
 use LaravelViews\Views\ListView;
@@ -43,6 +44,7 @@ class RoomListView extends ListView
     {
         return [
             new RoomEquipmentFilter,
+            new RoomAvailableFilter,
         ];
     }
 }

@@ -1,4 +1,4 @@
-@props(['action','model'])
+@props(['model'])
 
 <x-card>
     <x-slot name="body">
