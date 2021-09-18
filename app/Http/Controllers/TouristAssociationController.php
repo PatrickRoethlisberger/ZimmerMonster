@@ -39,7 +39,7 @@ class TouristAssociationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['nullable','string','max:255'],
+            'name' => ['required','string','max:255'],
             'street' => ['required', 'string', 'max:255'],
             'city_id' => ['required', 'exists:cities,id', 'integer'],
             'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
@@ -95,7 +95,7 @@ class TouristAssociationController extends Controller
         if (in_array($touristAssociation->id, Auth::user()->team->touristAssociations->pluck('id')->toArray())) {
 
             $request->validate([
-                'name' => ['nullable','string','max:255'],
+                'name' => ['required','string','max:255'],
                 'street' => ['required', 'string', 'max:255'],
                 'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
             ]);

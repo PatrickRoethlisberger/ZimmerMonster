@@ -43,7 +43,7 @@ class HotelController extends Controller
     {
         if( Auth::user()->team->type == 'admin') {
             $request->validate([
-                'name' => ['nullable','string','max:255'],
+                'name' => ['required','string','max:255'],
                 'street' => ['required', 'string', 'max:255'],
                 'city_id' => ['required', 'exists:cities,id', 'integer'],
                 'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
@@ -60,7 +60,7 @@ class HotelController extends Controller
         }
         else {
             $request->validate([
-                'name' => ['nullable','string','max:255'],
+                'name' => ['required','string','max:255'],
                 'street' => ['required', 'string', 'max:255'],
                 'city_id' => ['required', 'exists:cities,id', 'integer'],
                 'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
@@ -126,7 +126,7 @@ class HotelController extends Controller
         if (in_array($hotel->id, Auth::user()->team->hotels->pluck('id')->toArray())) {
             if( Auth::user()->team->type == 'admin') {
                 $request->validate([
-                    'name' => ['nullable','string','max:255'],
+                    'name' => ['required','string','max:255'],
                     'street' => ['required', 'string', 'max:255'],
                     'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
                     'stars' => ['required', 'numeric', 'min:1', 'max:5', 'multiple_of:0.5'],
@@ -137,7 +137,7 @@ class HotelController extends Controller
             }
             else {
                 $request->validate([
-                    'name' => ['nullable','string','max:255'],
+                    'name' => ['required','string','max:255'],
                     'street' => ['required', 'string', 'max:255'],
                     'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
                     'stars' => ['required', 'numeric', 'min:1', 'max:5', 'multiple_of:0.5'],
