@@ -3,10 +3,10 @@
 use App\Http\Controllers\BedtypeController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\ManageRoomCategoryController;
 use App\Http\Controllers\ManageRoomController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TouristAssociationController;
-use App\Models\Room;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +46,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
         // Equipment Management
         Route::middleware(['isInTeam:admin'])->group(function () {
+            Route::resource('roomCategory', ManageRoomCategoryController::class)->except('show', 'destroy');
             Route::resource('equipment', EquipmentController::class)->except('show', 'destroy');
         });
 

@@ -45,6 +45,8 @@ class ManageRoomCategoryController extends Controller
         RoomCategory::create([
             'name' => $request->name
         ]);
+
+        return redirect(route('manage.room_category.index'));
     }
 
     /**
@@ -87,6 +89,8 @@ class ManageRoomCategoryController extends Controller
         $roomCategory->update([
             'name' => $request->name
         ]);
+
+        return redirect(route('manage.roomCategory.index'));
     }
 
     /**
