@@ -34,6 +34,11 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="phone" value="Telefon Nummer" />
+                <x-jet-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autocomplete="phone" />
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="password" value="Passwort" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>

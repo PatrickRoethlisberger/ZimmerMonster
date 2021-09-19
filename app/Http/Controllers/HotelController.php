@@ -46,7 +46,7 @@ class HotelController extends Controller
                 'name' => ['required','string','max:255'],
                 'street' => ['required', 'string', 'max:255'],
                 'city_id' => ['required', 'exists:cities,id', 'integer'],
-                'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
+                'phone' => ['required', 'string', 'max:32', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
                 'stars' => ['required', 'numeric', 'min:1', 'max:5'],
                 'touristAssociation_id' => ['required', 'exists:tourist_associations,id', 'integer'],
             ]);
@@ -63,7 +63,7 @@ class HotelController extends Controller
                 'name' => ['required','string','max:255'],
                 'street' => ['required', 'string', 'max:255'],
                 'city_id' => ['required', 'exists:cities,id', 'integer'],
-                'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
+                'phone' => ['required', 'string', 'max:32', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
                 'stars' => ['required', 'numeric', 'min:1', 'max:5'],
             ]);
 
@@ -128,7 +128,7 @@ class HotelController extends Controller
                 $request->validate([
                     'name' => ['required','string','max:255'],
                     'street' => ['required', 'string', 'max:255'],
-                    'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
+                    'phone' => ['required', 'string', 'max:32', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
                     'stars' => ['required', 'numeric', 'min:1', 'max:5'],
                     'touristAssociation_id' => ['required', 'exists:tourist_associations,id', 'integer'],
                 ]);
@@ -139,7 +139,7 @@ class HotelController extends Controller
                 $request->validate([
                     'name' => ['required','string','max:255'],
                     'street' => ['required', 'string', 'max:255'],
-                    'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
+                    'phone' => ['required', 'string', 'max:32', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
                     'stars' => ['required', 'numeric', 'min:1', 'max:5'],
                 ]);
 
