@@ -23,6 +23,11 @@ class RoomFilter extends ModelFilter
         });
     }
 
+    public function hotel($hotel)
+    {
+        return $this->where('hotel_id', $hotel)->orWhere('slug', $hotel);
+    }
+
     public function equipments($equipments)
     {
         $query = $this->whereHas('equipments');
