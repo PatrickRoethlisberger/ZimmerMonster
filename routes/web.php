@@ -41,7 +41,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('manage')->name('manage.')->middleware(['isInTeam'])->group(function () {
 
         Route::get('/', function () {
-            return view('manage.index');
+            return view('manage.index', [
+                'hotels' => auth()->user()->team->hotels()->get(),
+            ]);
         })->name('index');
 
         // Equipment Management
