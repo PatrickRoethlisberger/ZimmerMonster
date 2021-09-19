@@ -54,7 +54,7 @@ class CreateRoom extends Component
         })->toArray();
 
         $validated_data['equipments'] = collect($validated_data['equipments'])->map(function($equipment){
-            if ($equipment['pivot']) {
+            if (isset($equipment['pivot'])) {
                 return [
                     'equipment_id' => $equipment['id'],
                     'description' => $equipment['pivot']['description'],
@@ -92,10 +92,17 @@ class CreateRoom extends Component
         })->toArray();
 
         $validated_data['equipments'] = collect($validated_data['equipments'])->map(function($equipment){
-            return [
-               'equipment_id' => $equipment['id'],
-               'description' => $equipment['pivot']['description'],
-            ];
+            if (isset($equipment['pivot'])) {
+                return [
+                    'equipment_id' => $equipment['id'],
+                    'description' => $equipment['pivot']['description'],
+                ];
+            }
+            else {
+                return [
+                    'equipment_id' => $equipment['id']
+                ];
+            }
         })->toArray();
 
         $this->model->beds()->sync($validated_data['beds']);

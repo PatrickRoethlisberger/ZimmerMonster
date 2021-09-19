@@ -5,9 +5,12 @@ use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ManageRoomCategoryController;
 use App\Http\Controllers\ManageRoomController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TouristAssociationController;
 use App\Models\Hotel;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,10 +43,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-    Route::get('/debug', function () {
-        dd(auth()->user()->team->hotels->first()->slug);
+    Route::resource('reservation', ReservationController::class)->only(['index']);
 
-    });
+    Route::get('reservation/{reservation}/review', [ReviewController::class, 'create'])->name('review.create');
+    Route::post('reservation/{reservation}/review', [ReviewController::class, 'store'])->name('review.store');
 
     Route::prefix('manage')->name('manage.')->middleware(['isInTeam'])->group(function () {
 

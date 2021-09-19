@@ -23,6 +23,11 @@
                             {{ __('Verwaltung') }}
                         </x-jet-nav-link>
                     @endteammember
+                    @hasReservations
+                        <x-jet-nav-link href="{{ route('reservation.index') }}" :active="request()->routeIs('reservatons')">
+                            {{ __('Reservationen') }}
+                        </x-jet-nav-link>
+                    @endhasReservations
                 </div>
             </div>
 

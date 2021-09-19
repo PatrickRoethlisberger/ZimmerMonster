@@ -49,5 +49,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('hotelMember', function () {
             return auth()->check() && auth()->user()->team && ( auth()->user()->team->type == 'hotel' || auth()->user()->team->type == 'tourist_association' || auth()->user()->team->type == 'admin');
         });
+
+        Blade::if('hasReservations', function () {
+            return auth()->check() && auth()->user()->reservations != null;
+        });
     }
 }
