@@ -62,7 +62,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
         // Hotel Management
         Route::middleware(['isInTeam:admin,tourist_association,hotel'])->group(function () {
-            Route::resource('hotel', HotelController::class)->except('show', 'destroy');
+            Route::resource('hotel', HotelController::class)->except('destroy');
             Route::get('/hotel/{hotel}/equipment', [HotelController::class, 'editEquipment'])->name('hotel.equipment.edit');
 
             Route::get('hotel/{hotel}/room/', [ManageRoomController::class, 'index'])->name('room.index');
@@ -71,11 +71,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('hotel/{hotel}/room/{room}/edit', [ManageRoomController::class, 'edit'])->name('room.edit');
             Route::put('hotel/{hotel}/room/{room}/update', [ManageRoomController::class, 'update'])->name('room.update');
         });
-
-        // // Room Management
-        // Route::middleware(['isInTeam:admin,tourist_association,hotel'])->group(function () {
-        //     Route::resource('room', ManageRoomController::class)->except('index', 'show', 'destroy');
-        // });
 
 
     });

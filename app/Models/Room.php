@@ -65,7 +65,7 @@ class Room extends Model
 
     public function currentReservations()
     {
-        return $this->hasMany(Reservation::class)->where('until', '>=', Carbon::now())->orderBy('from', 'asc');
+        return $this->hasMany(Reservation::class)->where('until', '>=', Carbon::now())->where('from', '<=', Carbon::now())->orderBy('from', 'asc');
     }
 
     public function getBookedDatesAttribute()

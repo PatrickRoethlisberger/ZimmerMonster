@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -62,5 +63,20 @@ class Hotel extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function reservations()
+    {
+        return $this->hasManyThrough(Reservation::class, Room::class, 'hotel_id', 'room_id');
+    }
+
+    public function upcommingReservations()
+    {
+        return $this->hasManyThrough(Reservation::class, Room::class, 'hotel_id', 'room_id')->where('from', '>=', Carbon::now())->orderBy('from', 'asc');
+    }
+
+    public function currentReservations()
+    {
+        return $this->hasManyThrough(Reservation::class, Room::class, 'hotel_id', 'room_id')->where('until', '>=', Carbon::now())->where('from', '<=', Carbon::now())->orderBy('from', 'asc');
     }
 }

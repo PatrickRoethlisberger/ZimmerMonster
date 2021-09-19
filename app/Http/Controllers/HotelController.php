@@ -97,7 +97,11 @@ class HotelController extends Controller
      */
     public function show(Hotel $hotel)
     {
-        //
+        return view('manage.hotel.show', [
+            'hotel' => $hotel,
+            'currentReservations' => $hotel->currentReservations()->get(),
+            'upcommingReservations' => $hotel->upcommingReservations()->get()
+        ]);
     }
 
     /**
