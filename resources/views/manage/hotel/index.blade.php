@@ -31,8 +31,11 @@
 
                     </x-slot>
                     <x-slot name="buttons">
-                        <x-link-button :href="route('manage.hotel.edit', [$hotel])">
-                            Bearbeiten
+                        <x-link-button :href="route('manage.hotel.edit', [$hotel])" class="mr-2 !bg-gray-400">
+                            Hotel Bearbeiten
+                        </x-link-button>
+                        <x-link-button :href="route('manage.room.index', [$hotel])">
+                            Zimmer bearbeiten
                         </x-link-button>
                     </x-slot>
                 </x-card>

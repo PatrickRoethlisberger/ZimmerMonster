@@ -28,9 +28,11 @@
                     <span class="m-1 bg-gray-200 hover:bg-gray-300 rounded-full px-2 font-bold text-sm leading-loose">{{ $equipment->name }}</span>
                 @endforeach
             </div>
-            <x-link-button :href="route('manage.room.edit',['room' => $model , 'hotel' => $model->hotel])">
-                Jetzt buchen
-            </x-link-button>
+            <div>
+                @if (isset($buttons))
+                    {{ $buttons }}
+                @endif
+            </div>
         </div>
     </x-slot>
 </x-card>

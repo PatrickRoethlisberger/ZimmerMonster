@@ -13,9 +13,13 @@ class ManageRoomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Hotel $hotel)
     {
-        //
+        return view('manage.room.index', [
+            'hotel' => $hotel,
+            'rooms' => $hotel->rooms()->paginate(16),
+        ]);
+
     }
 
     /**
