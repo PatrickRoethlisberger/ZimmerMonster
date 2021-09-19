@@ -34,7 +34,7 @@
 
                 <div class="mt-4">
                     <x-jet-label for="stars" value="Anzahl Sterne" />
-                    <x-jet-input id="stars" class="block mt-1 w-full" type="number" min="1" max="5" step="0.5" name="stars" :value="old('stars')" required />
+                    <x-jet-input id="stars" class="block mt-1 w-full" type="number" min="1" max="5" name="stars" :value="old('stars')" required />
                 </div>
 
                 @adminMember
