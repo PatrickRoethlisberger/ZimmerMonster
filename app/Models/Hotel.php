@@ -49,9 +49,9 @@ class Hotel extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function equipment()
+    public function equipments()
     {
-        return $this->morphedByMany(Equipment::class, 'equipable', 'equipment_hotel_room')->withPivot('description');
+        return $this->morphToMany(Equipment::class, 'equipables', 'equipment_hotel_room')->withPivot('description');
     }
 
     public function rooms()

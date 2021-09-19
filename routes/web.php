@@ -63,6 +63,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         // Hotel Management
         Route::middleware(['isInTeam:admin,tourist_association,hotel'])->group(function () {
             Route::resource('hotel', HotelController::class)->except('show', 'destroy');
+            Route::get('/hotel/{hotel}/equipment', [HotelController::class, 'editEquipment'])->name('hotel.equipment.edit');
 
             Route::get('hotel/{hotel}/room/', [ManageRoomController::class, 'index'])->name('room.index');
             Route::get('hotel/{hotel}/room/create', [ManageRoomController::class, 'create'])->name('room.create');

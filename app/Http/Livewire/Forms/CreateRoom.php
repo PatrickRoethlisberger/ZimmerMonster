@@ -24,7 +24,7 @@ class CreateRoom extends Component
         //Gate::authorize()
         $this->fill([
             'wrapWithView' => false, //see https://github.com/tanthammar/tall-forms/wiki/Wrapper-Layout
-            'showGoBack' => true,
+            'showGoBack' => false,
             'showDelete' => false,
             'showReset' => false,
         ]);

@@ -165,6 +165,19 @@ class HotelController extends Controller
     }
 
     /**
+    * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Hotel  $hotel
+     * @return \Illuminate\Http\Response
+     */
+    public function editEquipment(Hotel $hotel)
+    {
+        return view('manage.hotel.equipment.edit', [
+            'hotel' => $hotel,
+        ]);
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Hotel  $hotel
