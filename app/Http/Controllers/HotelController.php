@@ -47,7 +47,7 @@ class HotelController extends Controller
                 'street' => ['required', 'string', 'max:255'],
                 'city_id' => ['required', 'exists:cities,id', 'integer'],
                 'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
-                'stars' => ['required', 'numeric', 'min:1', 'max:5', 'multiple_of:0.5'],
+                'stars' => ['required', 'numeric', 'min:1', 'max:5'],
                 'touristAssociation_id' => ['required', 'exists:tourist_associations,id', 'integer'],
             ]);
 
@@ -64,7 +64,7 @@ class HotelController extends Controller
                 'street' => ['required', 'string', 'max:255'],
                 'city_id' => ['required', 'exists:cities,id', 'integer'],
                 'phone' => ['required', 'string', 'max:255', 'regex:/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/'],
-                'stars' => ['required', 'numeric', 'min:1', 'max:5', 'multiple_of:0.5'],
+                'stars' => ['required', 'numeric', 'min:1', 'max:5'],
             ]);
 
             $touristAssociation_id = TouristAssociation::where('team_id',Auth::user()->team->id)->firstOrFail()->id;
