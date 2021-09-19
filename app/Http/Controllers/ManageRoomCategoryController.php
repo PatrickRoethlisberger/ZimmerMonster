@@ -46,7 +46,7 @@ class ManageRoomCategoryController extends Controller
             'name' => $request->name
         ]);
 
-        return redirect(route('manage.room_category.index'));
+        return redirect(route('manage.roomCategory.index'));
     }
 
     /**
