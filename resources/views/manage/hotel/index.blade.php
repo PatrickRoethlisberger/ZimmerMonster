@@ -34,6 +34,9 @@
                         <x-link-button :href="route('manage.hotel.edit', [$hotel])" class="mr-2 !bg-gray-400">
                             Hotel Bearbeiten
                         </x-link-button>
+                        <x-link-button :href="route('manage.hotel.equipment.edit', [$hotel])" class="mr-2">
+                            Hotel Equipment bearbeiten
+                        </x-link-button>
                         <x-link-button :href="route('manage.room.index', [$hotel])">
                             Zimmer bearbeiten
                         </x-link-button>

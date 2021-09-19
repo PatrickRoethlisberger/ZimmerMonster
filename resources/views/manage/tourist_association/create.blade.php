@@ -5,7 +5,7 @@
 
     <x-app-body>
             <h1 class="font-semibold text-2xl text-gray-800 leading-tight">
-                Einrichtung erstellen
+                Verkehrsverein erstellen
             </h1>
 
             <x-jet-validation-errors class="mb-4" />
