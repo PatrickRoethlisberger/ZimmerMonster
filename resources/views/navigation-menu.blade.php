@@ -12,6 +12,9 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('hotel.index') }}" :active="request()->routeIs('hotel.index')">
+                        {{ __('Hotels') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('room.index') }}" :active="request()->routeIs('room.index')">
                         {{ __('Zimmer') }}
                     </x-jet-nav-link>

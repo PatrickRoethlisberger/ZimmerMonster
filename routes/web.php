@@ -7,6 +7,7 @@ use App\Http\Controllers\ManageRoomCategoryController;
 use App\Http\Controllers\ManageRoomController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TouristAssociationController;
+use App\Models\Hotel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('hotel', function () {
+    return view('hotels.index', [
+        'hotels' => Hotel::orderBy('name')->paginate(16),
+    ]);
+})->name('hotel.index');
 
 
 Route::resource('room', RoomController::class);
