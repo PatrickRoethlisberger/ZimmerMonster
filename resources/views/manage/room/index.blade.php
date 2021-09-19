@@ -10,7 +10,7 @@
             <h1 class="font-semibold text-2xl text-gray-800 leading-tight mt-4">
                 Zimmer von "{{ $hotel->name }}"
             </h1>
-            <x-link-button href="{{ route('manage.hotel.create') }}" class="mt-4">
+            <x-link-button href="{{ route('manage.room.create', [$hotel]) }}" class="mt-4">
                 Zimmer erstellen
             </x-link-button>
         </div>
